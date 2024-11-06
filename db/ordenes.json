@@ -1,0 +1,57 @@
+[
+  {
+      "num_orden":1,
+      "order_date":"hoy",
+      "total":800,
+      "products": [
+        {
+          "product_id":1,
+          "quantity":2,
+          "total_amount":400,
+        },
+        {
+          "product_id":2,
+          "quantity":1,
+          "total_amount":200,
+        },
+        {
+          "product_id":2,
+          "quantity":1,
+          "total_amount":200,
+        },
+        {
+          "product_id":3,
+          "quantity":1,
+          "total_amount":50,
+        }
+      ]
+    },
+
+  {
+      "num_orden":2,
+      "order_date":"hoy",
+      "total":800,
+      "products": [
+        {
+          "product_id":1,
+          "quantity":2,
+          "total_amount":400,
+        },
+        {
+          "product_id":2,
+          "quantity":1,
+          "total_amount":200,
+        },
+        {
+          "product_id":2,
+          "quantity":1,
+          "total_amount":200,
+        },
+        {
+          "product_id":3,
+          "quantity":1,
+          "total_amount":50,
+        }
+      ]
+    }
+]

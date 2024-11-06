@@ -1,0 +1,56 @@
+[
+  {
+      "id": 1,
+      "name": "Agua Fresca",
+      "price": 40,
+      "image": "menu/aguasfrescas.webp"
+    },
+    {
+      "id": 2,
+      "name": "Banana Split",
+      "price": 80,
+      "image": "menu/bananasplit.webp"
+    },
+    {
+      "id": 3,
+      "name": "Nieve En Cono",
+      "price": 45,
+      "image": "menu/conochico.webp"
+    },
+    {
+      "id": 4,
+      "name": "Tosti Nachos",
+      "price": 50,
+      "image": "menu/doritos.webp"
+    },
+    {
+      "id": 5,
+      "name": "Elote en Vaso",
+      "price": 25,
+      "image": "menu/elotevaso.webp"
+    },
+    {
+      "id": 6,
+      "name": "Esquimal",
+      "price": 30,
+      "image": "menu/esquimal.webp"
+    }
+    ,{
+      "id": 7,
+      "name": "Fresas con Crema",
+      "price": 60,
+      "image": "menu/fresasconcrema.webp"
+    },
+    {
+      "id": 8,
+      "name": "Mangoneada",
+      "price": 25,
+      "image": "menu/mangoneadas.webp"
+    },
+    {
+      "id": 9,
+      "name": "Nieve Vaso",
+      "price": 45,
+      "image": "menu/nievevasomedigran.webp"
+    }
+]
