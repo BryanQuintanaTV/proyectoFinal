@@ -50,8 +50,20 @@ def detalles_productos(request, id):
 
     products = cargar_productos()
 
-    # Delete request code
-    if request.method == 'DELETE':
+    if request.method == 'PATCH':
+
+        product = next((u for u in products if u['id'] == id), None)
+
+        if product is None:
+            return JsonResponse({"mensaje" : "Producto No encontrado"}, safe=False, status=404)
+
+        producto_actualizado = json.loads(request.body.decode('utf-8'))
+        product.update(producto_actualizado)
+        guardar_productos(products)
+        return JsonResponse({"mensaje" : "Producto actualizado correctamente"}, safe=False, status=200)
+
+
+    elif request.method == 'DELETE':
 
         product = next((u for u in products if u['id'] == id), None)
 
