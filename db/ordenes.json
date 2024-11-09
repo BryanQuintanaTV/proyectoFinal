@@ -7,22 +7,22 @@
         {
           "product_id":1,
           "quantity":2,
-          "total_amount":400,
+          "amount":400
         },
         {
           "product_id":2,
           "quantity":1,
-          "total_amount":200,
+          "amount":200
         },
         {
           "product_id":2,
           "quantity":1,
-          "total_amount":200,
+          "amount":200
         },
         {
           "product_id":3,
           "quantity":1,
-          "total_amount":50,
+          "amount":50
         }
       ]
     },
@@ -35,22 +35,22 @@
         {
           "product_id":1,
           "quantity":2,
-          "total_amount":400,
+          "amount":400
         },
         {
           "product_id":2,
           "quantity":1,
-          "total_amount":200,
+          "amount":200
         },
         {
           "product_id":2,
           "quantity":1,
-          "total_amount":200,
+          "amount":200
         },
         {
           "product_id":3,
           "quantity":1,
-          "total_amount":50,
+          "amount":50
         }
       ]
     }

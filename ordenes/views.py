@@ -24,26 +24,16 @@ def guardar_ordenes(usuarios):
 # Function for http Requests
 def ordenes(request):
 
+    ordenes = cargar_ordenes()
+
+    # Verificar si hay usuarios
+    if len(ordenes) == 0:
+        return JsonResponse({"mensaje": "No hay productos"}, safe=False, status=404)
+
     if request.method == 'GET':
+        respuesta = JsonResponse(ordenes, safe=False, status=200)
+        return respuesta
 
-        # return JsonResponse({"mensaje":"No hay ordenes"}, status=400)
-
-        return JsonResponse([{
-            "id": 1,
-            "num_order": 12,
-            "product_id": 1,
-            "quantity": 20,
-            "total_amount": 500.00,
-            "order_date": "10/24/2023",
-        },
-            {
-                "id": 1,
-                "num_order": 12,
-                "product_id": 1,
-                "quantity": 20,
-                "total_amount": 500.00,
-                "order_date": "10/24/2023",
-            }], safe=False, status=200)
 
     if request.method == 'POST':
         return JsonResponse({"mensaje":"No hay ordenes"}, status=400)
