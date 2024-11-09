@@ -41,3 +41,8 @@ def productos(request):
             return JsonResponse({"mensaje": "Usuario Creado Correctamente"}, status=200)
         except:
             return JsonResponse({"mensaje" : "Hubo un error al agregar el producto"}, safe=False, status=400)
+
+def productos(id,request):
+    # Delete request code
+    if request.method == 'DELETE':
+        return None
