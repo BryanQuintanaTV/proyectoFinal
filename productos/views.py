@@ -8,6 +8,7 @@ import os
 PATH_PRODUCTOS = os.path.join(settings.BASE_DIR, 'db\productos.json')
 
 # Función para cargar los contenidos de órdenes.json
+
 def cargar_productos():
     if not os.path.exists(PATH_PRODUCTOS):
         return []
@@ -21,6 +22,7 @@ def guardar_productos(productos):
         json.dump(productos, file, indent=2)
 
 # Create your views here.
+@csrf_exempt
 def productos(request):
 
     productos = cargar_productos()
@@ -41,3 +43,23 @@ def productos(request):
             return JsonResponse({"mensaje": "Usuario Creado Correctamente"}, status=200)
         except:
             return JsonResponse({"mensaje" : "Hubo un error al agregar el producto"}, safe=False, status=400)
+
+
+@csrf_exempt
+def detalles_productos(request, id):
+
+    products = cargar_productos()
+
+    # Delete request code
+    if request.method == 'DELETE':
+
+        product = next((u for u in products if u['id'] == id), None)
+
+        if product is None:
+            return JsonResponse({"mensaje": "Producto no encontrado"}, safe=False, status=404)
+
+        # If the product exists, then create a new array excluding the product of the {id}
+        new_product_list = [u for u in products if u['id'] != id]
+        guardar_productos(new_product_list)
+        return JsonResponse({"mensjae" : "Producto Eliminado Correctamente"}, safe=False, status=204)
+
