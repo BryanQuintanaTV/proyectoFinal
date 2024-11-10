@@ -50,7 +50,16 @@ def detalles_productos(request, id):
 
     products = cargar_productos()
 
-    if request.method == 'PATCH':
+    if request.method == 'GET':
+        product = next((u for u in products if u['id'] == id), None)
+
+        if product is None:
+            return JsonResponse({"mensaje" : "No se encontró el producto"}, safe=False, status=404)
+
+        return JsonResponse(product, safe=False, status=200)
+
+
+    elif request.method == 'PATCH':
 
         product = next((u for u in products if u['id'] == id), None)
 
