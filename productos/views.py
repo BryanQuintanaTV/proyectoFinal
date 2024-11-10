@@ -38,16 +38,36 @@ def productos(request):
     elif request.method == 'POST':
         try:
             nuevo_producto = json.loads(request.body.decode('utf-8'))
+
+            if nuevo_producto['id'] == 0:
+                id = newIndex()
+                nuevo_producto['id'] = id
+                nuevo_producto['image'] = 'menu/noImage.jpg'
+
             productos.append(nuevo_producto)
-            guardar_productos(nuevo_producto)
-            return JsonResponse({"mensaje": "Usuario Creado Correctamente"}, status=200)
+            guardar_productos(productos)
+            return JsonResponse({"mensaje": "Producto Creado Correctamente"}, status=200)
         except:
             return JsonResponse({"mensaje" : "Hubo un error al agregar el producto"}, safe=False, status=400)
 
 
+# ----------------------------------------
+def newIndex():
+    productos = cargar_productos()
+    higher_index = 0
+
+    for producto in productos:
+        if producto['id'] > higher_index:
+            higher_index = producto['id']
+
+    return higher_index + 1
+
+
+
+
+# -------------------------------------
 @csrf_exempt
 def detalles_productos(request, id):
-
     products = cargar_productos()
 
     if request.method == 'GET':
@@ -82,5 +102,5 @@ def detalles_productos(request, id):
         # If the product exists, then create a new array excluding the product of the {id}
         new_product_list = [u for u in products if u['id'] != id]
         guardar_productos(new_product_list)
-        return JsonResponse({"mensjae" : "Producto Eliminado Correctamente"}, safe=False, status=204)
+        return JsonResponse({"mensaje" : "Producto Eliminado Correctamente"}, safe=False, status=204)
 
