@@ -42,7 +42,7 @@ def productos(request):
             if nuevo_producto['id'] == 0:
                 id = newIndex()
                 nuevo_producto['id'] = id
-                nuevo_producto['image'] = 'menu/noImage.jpg'
+                nuevo_producto['image'] = 'menu/noImage.png'
 
             productos.append(nuevo_producto)
             guardar_productos(productos)
